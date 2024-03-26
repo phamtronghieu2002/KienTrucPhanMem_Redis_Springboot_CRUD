@@ -8,9 +8,10 @@ import lombok.Setter;
 import org.springframework.data.redis.core.RedisHash;
 
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
-@Table(name="USER")
+@Table(name="users")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -22,8 +23,11 @@ public class User implements Serializable {
     private String id;
 
 
-    private String user_name;
+    private String userName;
 
 
     private String address;
+
+    @Transient
+    private List<Product> products;
 }
